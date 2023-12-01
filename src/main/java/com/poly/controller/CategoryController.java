@@ -24,8 +24,11 @@ public class CategoryController {
     }
 
     @GetMapping("/search-by-id/{id}")
-    public ResponseEntity<Category> findByID(@PathVariable(name = "id") int id) {
-        return new ResponseEntity<>(categoryService.findByID(id), HttpStatus.OK);
+    public ResponseEntity<?> findByID(@PathVariable(name = "id") int id) {
+        if (categoryService.findByID(id) != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject(HttpStatus.OK, "Success!", categoryService.findByID(id)));
+        }
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ResponseObject(HttpStatus.NO_CONTENT, "Fail!", null));
     }
 
     @GetMapping("/search-by-name")
