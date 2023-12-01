@@ -1,4 +1,4 @@
-# =============Database config==================#
+#=============Database config==================#
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
@@ -6,7 +6,7 @@ spring:
     username: sa
     password: 12345
 
-# ==============HIBERNATE=================#
+#==============HIBERNATE=================#
   jpa:
     show-sql: true
     hibernate:
