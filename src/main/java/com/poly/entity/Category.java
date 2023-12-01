@@ -20,6 +20,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
     String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)

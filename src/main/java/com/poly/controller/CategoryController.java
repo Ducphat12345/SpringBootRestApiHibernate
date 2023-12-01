@@ -20,7 +20,7 @@ public class CategoryController {
         if (!categoryService.getAllCategory().isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject(HttpStatus.OK,"Success!", categoryService.getAllCategory()));
         }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ResponseObject(HttpStatus.NO_CONTENT, "Fail!", null));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseObject(HttpStatus.NOT_FOUND, "Fail!", null));
     }
 
     @GetMapping("/search-by-id/{id}")
@@ -28,7 +28,7 @@ public class CategoryController {
         if (categoryService.findByID(id) != null) {
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject(HttpStatus.OK, "Success!", categoryService.findByID(id)));
         }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ResponseObject(HttpStatus.NO_CONTENT, "Fail!", null));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseObject(HttpStatus.NOT_FOUND, "Fail!", null));
     }
 
     @GetMapping("/search-by-name")
