@@ -21,6 +21,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @Column(name = "name")
     String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
